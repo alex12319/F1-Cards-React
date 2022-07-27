@@ -17,7 +17,8 @@ function Card() {
   }
 
   return drivers.map((driver, index) => {
-    const { hex, image, number, points, firstName, lastName, team } = driver;
+    const { hex, image, number, points, firstName, lastName, team, country } =
+      driver;
     return (
       <div key={index} className="driver-card">
         <div style={{ "--custom-color": hex }} className="custom-border"></div>
@@ -43,12 +44,15 @@ function Card() {
             <p className="lastName">{lastName}</p>
             <div style={{ background: hex }} className="name-border"></div>
           </div>
-          <img src={flags[index]} />
+          <img src={flags.find((flag) => flag.country === country).url} />
         </div>
         <div className="team">{team}</div>
         <div className="driver-section">
           <img className="driver" src={image} />
-          <img className="number" src={numberImages[index]} />
+          <img
+            className="number"
+            src={numberImages.find((image) => image.number === number).url}
+          />
         </div>
       </div>
     );
