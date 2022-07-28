@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { mockDataSorted } from "../data/mockData";
-import { flags } from "../data/flags";
 import { numberImages } from "../data/numberImages";
 import "../styles/cardStyle.css";
+import Flag from "react-world-flags";
 
 function Card() {
   const [drivers, setDrivers] = useState([...mockDataSorted]);
@@ -44,7 +44,7 @@ function Card() {
             <p className="lastName">{lastName}</p>
             <div style={{ background: hex }} className="name-border"></div>
           </div>
-          <img src={flags.find((flag) => flag.country === country).url} />
+          <Flag code={country} />
         </div>
         <div className="team">{team}</div>
         <div className="driver-section">
